@@ -1,8 +1,8 @@
 fun_nodejs() {
 
   log=/tmp/roboshop.log
-  echo -e "\e[35m<<<<<<<<<<  create $${component}} service  >>>>>>>>>\e[0m"
-  cp $${component}}.service /etc/systemd/system/$${component}}.service &>>$${log}
+  echo -e "\e[35m<<<<<<<<<<  create ${component} service  >>>>>>>>>\e[0m"
+  cp ${component}.service /etc/systemd/system/$${component}.service &>>$${log}
 
   echo -e "\e[35m<<<<<<<<<<  create mongodb repository  >>>>>>>>>\e[0m"
   cp mongo.repo /etc/yum.repos.d/mongo.repo &>>${log}
@@ -19,11 +19,11 @@ fun_nodejs() {
   echo -e "\e[35m<<<<<<<<<< Create application directiory >>>>>>>>>\e[0m"
   mkdir /app &>>${log}
   echo -e "\e[35m<<<<<<<<<<  download Application Content  >>>>>>>>>\e[0m"
-  curl -o /tmp/${component}}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}}.zip &>>${log}
+  curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log}
 
   echo -e "\e[35m<<<<<<<<<<  extract application content  >>>>>>>>>\e[0m"
   cd /app &>>${log}
-  unzip /tmp/${component}}.zip &>>${log}
+  unzip /tmp/${component}.zip &>>${log}
   cd /app &>>${log}
 
   echo -e "\e[35m<<<<<<<<<<  download nodejs dependencies  >>>>>>>>>\e[0m"
@@ -37,8 +37,8 @@ fun_nodejs() {
 
   echo -e "\e[35m<<<<<<<<<<  start user service  >>>>>>>>>\e[0m"
   systemctl daemon-reload &>>${log}
-  systemctl enable ${component}} &>>${log}
-  systemctl restart ${component}} &>>${log}
+  systemctl enable ${component} &>>${log}
+  systemctl restart ${component} &>>${log}
 
 
 }
