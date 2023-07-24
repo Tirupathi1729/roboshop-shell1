@@ -16,10 +16,10 @@ nodejs() {
   echo -e "\e[35m<<<<<<<<<<  create Application User >>>>>>>>>\e[0m"
   useradd roboshop &>>${log}
 
-  echo -e "\e[35m<<<<<<<<<< create application directory >>>>>>>>>\e[0m"
+  echo -e "\e[35m<<<<<<<<<<  create application directory >>>>>>>>>\e[0m"
   rm -rf /app &>>${log}
 
-  echo -e "\e[35m<<<<<<<<<< create application directory >>>>>>>>>\e[0m"
+  echo -e "\e[35m<<<<<<<<<<  create application directory >>>>>>>>>\e[0m"
   mkdir /app &>>${log}
   echo -e "\e[35m<<<<<<<<<<  download Application Content  >>>>>>>>>\e[0m"
   curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log}
