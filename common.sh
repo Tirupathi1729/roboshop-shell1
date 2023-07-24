@@ -55,22 +55,22 @@ fun_nodejs() {
 fun_java() {
   
   echo -e "\e[35m<<<<<<<<<<  create ${component} service  >>>>>>>>>\e[0m"
-  cp ${component}.service /etc/systemd/system/${component}.service
+  cp ${component}.service /etc/systemd/system/${component}.service &>>${log}
 
   echo -e "\e[35m<<<<<<<<<<  install maven  >>>>>>>>>\e[0m"
-  yum install maven -y
+  yum install maven -y &>>${log}
 
   fun_apppreq
 
   echo -e "\e[35m<<<<<<<<<<  Build ${component} service  >>>>>>>>>\e[0m"
-  mvn clean package
-  mv target/${component}-1.0.jar ${component}.jar
+  mvn clean package &>>${log}
+  mv target/${component}-1.0.jar ${component}.jar &>>${log}
   
   echo -e "\e[35m<<<<<<<<<<  install Mysql client  >>>>>>>>>\e[0m"
-  yum install mysql -y
+  yum install mysql -y &>>${log}
 
   echo -e "\e[35m<<<<<<<<<<  load schema  >>>>>>>>>\e[0m"
-  mysql -h mysql.tirupathib74.online -uroot -pRoboShop@1 < /app/schema/${component}.sql
+  mysql -h mysql.tirupathib74.online -uroot -pRoboShop@1 < /app/schema/${component}.sql &>>${log}
 
   fun_systemd
   
