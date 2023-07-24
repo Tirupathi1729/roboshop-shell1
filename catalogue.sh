@@ -1,4 +1,4 @@
 component=catalogue
-source=common.sh
+source common.sh
 
-fun_nodejs
+nodejs

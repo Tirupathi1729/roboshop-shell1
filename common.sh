@@ -1,8 +1,8 @@
-fun_nodejs() {
+nodejs() {
 
   log=/tmp/roboshop.log
   echo -e "\e[35m<<<<<<<<<<  create ${component} service  >>>>>>>>>\e[0m"
-  cp ${component}.service /etc/systemd/system/$${component}.service &>>$${log}
+  cp ${component}.service /etc/systemd/system/${component}.service &>>${log}
 
   echo -e "\e[35m<<<<<<<<<<  create mongodb repository  >>>>>>>>>\e[0m"
   cp mongo.repo /etc/yum.repos.d/mongo.repo &>>${log}
@@ -16,7 +16,7 @@ fun_nodejs() {
   echo -e "\e[35m<<<<<<<<<<  create Application User >>>>>>>>>\e[0m"
   useradd roboshop &>>${log}
 
-  echo -e "\e[35m<<<<<<<<<< Create application directiory >>>>>>>>>\e[0m"
+  echo -e "\e[35m<<<<<<<<<< Create application directory >>>>>>>>>\e[0m"
   mkdir /app &>>${log}
   echo -e "\e[35m<<<<<<<<<<  download Application Content  >>>>>>>>>\e[0m"
   curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log}
