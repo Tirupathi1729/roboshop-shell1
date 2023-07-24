@@ -1,5 +1,5 @@
 log=/tmp/roboshop.log
-fun_apppreq() {
+func_apppreq() {
     echo -e "\e[35m<<<<<<<<<<  create Application User >>>>>>>>>\e[0m"
     useradd roboshop &>>${log}
 
@@ -17,13 +17,13 @@ fun_apppreq() {
     unzip /tmp/${component}.zip &>>${log}
 
 }
-fun_systemd() {
+func_systemd() {
     echo -e "\e[35m<<<<<<<<<<  start ${component} service  >>>>>>>>>\e[0m"
     systemctl daemon-reload &>>${log}
     systemctl enable ${component} &>>${log}
     systemctl restart ${component} &>>${log}
 }
-fun_nodejs() {
+func_nodejs() {
 
 
   echo -e "\e[35m<<<<<<<<<<  create ${component} service  >>>>>>>>>\e[0m"
@@ -38,7 +38,7 @@ fun_nodejs() {
   echo -e "\e[35m<<<<<<<<<<  install nodejs  >>>>>>>>>\e[0m"
   yum install nodejs -y &>>${log}
 
-  fun_apppreq
+  func_apppreq
 
   echo -e "\e[35m<<<<<<<<<<  download nodejs dependencies  >>>>>>>>>\e[0m"
   npm install &>>${log}
@@ -49,11 +49,11 @@ fun_nodejs() {
   echo -e "\e[35m<<<<<<<<<<  load ${component} schema  >>>>>>>>>\e[0m"
   mongo --host mongodbtirupathib74.online </app/schema/${component}.js &>>${log}
 
-  fun_systemd
+  func_systemd
 
 }
 
-fun_java() {
+func_java() {
   
   echo -e "\e[35m<<<<<<<<<<  create ${component} service  >>>>>>>>>\e[0m"
   cp ${component}.service /etc/systemd/system/${component}.service &>>${log}
@@ -61,7 +61,7 @@ fun_java() {
   echo -e "\e[35m<<<<<<<<<<  install maven  >>>>>>>>>\e[0m"
   yum install maven -y &>>${log}
 
-  fun_apppreq
+  func_apppreq
 
   echo -e "\e[35m<<<<<<<<<<  Build ${component} service  >>>>>>>>>\e[0m"
   mvn clean package &>>${log}
@@ -73,7 +73,7 @@ fun_java() {
   echo -e "\e[35m<<<<<<<<<<  load schema  >>>>>>>>>\e[0m"
   mysql -h mysql.tirupathib74.online -uroot -pRoboShop@1 < /app/schema/${component}.sql &>>${log}
 
-  fun_systemd
+  func_systemd
   
 
 }
