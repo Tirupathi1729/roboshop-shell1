@@ -1,4 +1,10 @@
 log=/tmp/roboshop.log
+func_exit_status() {
+  if [ $? -eq 0 ];then
+    echo -e"\e[32m success\e[0m"
+  else
+    echo -e"\e[32m failure\e[0m"
+}
 func_apppreq() {
 
     echo -e "\e[35m<<<<<<<<<<  create ${component} service  >>>>>>>>>\e[0m"
