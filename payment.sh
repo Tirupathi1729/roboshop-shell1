@@ -1,4 +1,4 @@
 component=payment
-source commmon.sh
+source common.sh
 
 func_python
