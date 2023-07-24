@@ -1,5 +1,4 @@
-nodejs()
-{
+nodejs() {
 
   log=/tmp/roboshop.log
   echo -e "\e[35m<<<<<<<<<<  create {component} service  >>>>>>>>>\e[0m"
@@ -40,5 +39,6 @@ nodejs()
   systemctl daemon-reload &>>{log}
   systemctl enable {component} &>>{log}
   systemctl restart {component} &>>{log}
+
 
 }
