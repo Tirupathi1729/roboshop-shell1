@@ -1,4 +1,4 @@
-nodejs() {
+fun_nodejs() {
 
   log=/tmp/roboshop.log
   echo -e "\e[35m<<<<<<<<<<  create {component} service  >>>>>>>>>\e[0m"

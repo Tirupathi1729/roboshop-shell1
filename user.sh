@@ -1,4 +1,4 @@
 component=user
 source=common.sh
 
-nodejs
+fun_nodejs
