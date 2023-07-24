@@ -16,7 +16,10 @@ nodejs() {
   echo -e "\e[35m<<<<<<<<<<  create Application User >>>>>>>>>\e[0m"
   useradd roboshop &>>${log}
 
-  echo -e "\e[35m<<<<<<<<<< Create application directory >>>>>>>>>\e[0m"
+  echo -e "\e[35m<<<<<<<<<< create application directory >>>>>>>>>\e[0m"
+  rm -rf /app &>>${log}
+
+  echo -e "\e[35m<<<<<<<<<< create application directory >>>>>>>>>\e[0m"
   mkdir /app &>>${log}
   echo -e "\e[35m<<<<<<<<<<  download Application Content  >>>>>>>>>\e[0m"
   curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip &>>${log}
@@ -33,7 +36,7 @@ nodejs() {
   yum install mongodb-org-shell -y &>>${log}
 
   echo -e "\e[35m<<<<<<<<<<  load user schema  >>>>>>>>>\e[0m"
-  mongo --host mongodbtirupathib74.online </app/schema/catalogue.js &>>${log}
+  mongo --host mongodbtirupathib74.online </app/schema/${component}.js &>>${log}
 
   echo -e "\e[35m<<<<<<<<<<  start user service  >>>>>>>>>\e[0m"
   systemctl daemon-reload &>>${log}
