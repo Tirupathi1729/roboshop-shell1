@@ -4,6 +4,7 @@ func_exit_status() {
     echo -e"\e[32m success\e[0m"
   else
     echo -e"\e[32m failure\e[0m"
+  fi
 }
 func_apppreq() {
 
