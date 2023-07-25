@@ -61,7 +61,7 @@ func_schema_setup() {
 
 
     echo -e "\e[35m<<<<<<<<<<  load ${component} schema  >>>>>>>>>\e[0m"
-    mongo --host mongodbtirupathib74.online </app/schema/${component}.js &>>${log}
+    mongo --host mongodb.tirupathib74.online </app/schema/${component}.js &>>${log}
     func_exit_status
 
   fi
