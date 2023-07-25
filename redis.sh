@@ -11,8 +11,7 @@ echo -e "\e[35m<<<<<<<<<<  install redis  >>>>>>>>>\e[0m"
 yum install redis -y &>>${log}
 func_exit_status
 
-echo -e "\e[35m<<<<<<<<<<  Update listen address from 127.0.0.1 to 0.0.0.0 in /etc/redis.conf & /etc/redis/redis.conf
->>>>>>>>>\e[0m"
+echo -e "\e[35m<<<<<<<<<<  Update listen address from 127.0.0.1 to 0.0.0.0 in /etc/redis.conf & /etc/redis/redis.conf >>>>>>>>>\e[0m"
 
 
 echo -e "\e[35m<<<<<<<<<<  start redis  >>>>>>>>>\e[0m"
