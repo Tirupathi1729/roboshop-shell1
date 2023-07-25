@@ -22,19 +22,8 @@ echo -e "\e[35m<<<<<<<<<<  Extract application content  >>>>>>>>>\e[0m"
 unzip /tmp/frontend.zip &>>${log}
 func_exit_status
 
-
-echo -e "\e[35m<<<<<<<<<<  start nginx service  >>>>>>>>>\e[0m
+echo -e "\e[35m<<<<<<<<<<  start nginx service  >>>>>>>>>\e[0m"
 systemctl enable nginx &>>${log}
 systemctl restart nginx &>>${log}
+
 func_exit_status
-
-
-
-
-
-
-
-
-
-
-
