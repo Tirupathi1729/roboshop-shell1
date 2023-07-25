@@ -143,7 +143,7 @@ func_python() {
   func_apppreq
 
   echo -e "\e[35m<<<<<<<<<<  Build ${component} service  >>>>>>>>>\e[0m"
-  pip3.6 install -r requirements.txtn &>>${log}
+  pip3.6 install -r requirements.txt &>>${log}
   func_exit_status
 
 
